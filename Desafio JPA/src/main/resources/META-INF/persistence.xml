@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="PU_NAME" transaction-type="RESOURCE_LOCAL">
+        <!-- Define o provedor de persistência JPA -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Lista todas as classes de entidade no pacote infocorp.BDTeste.JPAInfocorp.Models -->
+        <class>infocorp.BDTeste.JPAInfocorp.Models.Cliente</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.Pedido</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.Produto</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.ItemPedido</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.Categoria</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.ProdutoCategoria</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.Funcionario</class>
+        <class>infocorp.BDTeste.JPAInfocorp.Models.PedidoFuncionario</class>
+
+        <!-- Define as propriedades para conectar ao banco de dados -->
+        <properties>
+            <!-- Propriedades de conexão -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5434/teste"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="123456"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Propriedades do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Você pode alterar para "validate" em produção -->
+        </properties>
+    </persistence-unit>
+</persistence>
